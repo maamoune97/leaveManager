@@ -1,5 +1,6 @@
 package com.elhardi.leavemanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
+@NamedEntityGraph(name = "user.role", attributeNodes = {@NamedAttributeNode("userRole")})
 public class User {
 
     @Id
@@ -24,7 +26,7 @@ public class User {
     private String phoneNumber;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "applicant")
-    private List<Request> requests;
+    private List<Demand> demands;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_role_id", referencedColumnName = "id")

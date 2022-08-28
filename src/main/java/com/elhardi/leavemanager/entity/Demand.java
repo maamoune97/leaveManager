@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Data
-public class Request {
+public class Demand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Request {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id", referencedColumnName = "id")
-    private RequestStatus status;
+    private DemandStatus status;
 
     private Date createAt;
 

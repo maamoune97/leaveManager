@@ -3,7 +3,7 @@ package com.elhardi.leavemanager.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -13,12 +13,14 @@ public class Leave {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date start;
+    @Basic
+    private java.sql.Date start;
 
-    private Date end;
+    @Basic
+    private java.sql.Date end;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "leave")
-    private Request request;
+    private Demand demand;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_leave_id", referencedColumnName = "id")

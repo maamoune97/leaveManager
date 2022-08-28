@@ -2,14 +2,11 @@ package com.elhardi.leavemanager.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity(name = "status")
+@Entity()
 @Data
-public class RequestStatus {
+public class DemandStatus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
